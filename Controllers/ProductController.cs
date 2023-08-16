@@ -5,7 +5,7 @@ namespace WebApplication2.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult GetProducts() // https://localhost:5001/product/getproducts bu adrese girince burası tetiklenir.
+        public ActionResult GetProducts() // https://localhost:5001/product/getproducts bu adrese girince burası tetiklenir.
         {
             // Controller burada modele gider bağlanır verileri çeker verileri hazırlar ve viewe gönderir. farklı veri gönderme tipleri de vardır.
             // gönderilen veriler viewde cshtmlde işlenir ve cliente gönderilir.
