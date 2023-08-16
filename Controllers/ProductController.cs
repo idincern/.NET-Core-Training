@@ -14,10 +14,10 @@ namespace WebApplication2.Controllers
             product.ProductName = string.Empty;
             product.Quantity = 0;
 
-// 1.yol    ViewResult result = new ViewResult();
+            // 1.yol    ViewResult result = new ViewResult();  zaten ProductController içerisindeki GetProducts() metodunda olduğumuz için direkt GetProducts.cshtml'i döndürür.
             ViewResult result = View("GetProducts", product); // 2.yol
             return result; // controllerın clienta response etmesi return işlemidir
-// 3.yol    return View();
+// 3.yol    return View(); zaten ProductController içerisindeki GetProducts() metodunda olduğumuz için direkt GetProducts.cshtml'i döndürür.
         }
     }
 }
