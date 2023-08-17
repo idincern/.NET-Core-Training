@@ -1,0 +1,9 @@
+﻿<h3>
+    TempData of TestActionRedirect
+    @{
+        foreach (var product in TempData["productsList"] as List<WebApplication2.Models.Product>)
+        {
+            <li>  @product.ProductName => @product.Quantity pcs </li>
+        }
+    }
+</h3>
