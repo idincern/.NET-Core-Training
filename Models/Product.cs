@@ -1,4 +1,4 @@
-﻿namespace WebApplication2.Models
+﻿namespace mvc_tutorial1.Models
 {
     public class Product
     {

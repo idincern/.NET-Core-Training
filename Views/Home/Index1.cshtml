@@ -1,5 +1,5 @@
 ﻿@* A) Model bazlı çalışma*@
-@*@model List<WebApplication2.Models.Product>
+@*@model List<mvc_tutorial1.Models.Product>
 <ul>
     @{
         foreach (var product in Model)
@@ -11,7 +11,7 @@
 <h3>ViewBag 
 @* B 1) Viewbag yapılanması=> dinamik bir şekilde çalışan efektif bir veri taşıma şekli*@
 @{
-    foreach (var product in ViewBag.products as List<WebApplication2.Models.Product>)
+        foreach (var product in ViewBag.products as List<mvc_tutorial1.Models.Product>)
     {
         <li>  @product.ProductName => @product.Quantity pcs </li>
     }
@@ -20,7 +20,7 @@
 
 <h3>ViewData
     @{
-        foreach (var product in ViewData["productsList"] as List<WebApplication2.Models.Product>)
+        foreach (var product in ViewData["productsList"] as List<mvc_tutorial1.Models.Product>)
         {
             <li>  @product.ProductName => @product.Quantity pcs </li>
         }
@@ -30,7 +30,7 @@
 <h3>
     TempData
     @{
-        foreach (var product in ViewData["productsList"] as List<WebApplication2.Models.Product>)
+        foreach (var product in ViewData["productsList"] as List<mvc_tutorial1.Models.Product>)
         {
             <li>  @product.ProductName => @product.Quantity pcs </li>
         }

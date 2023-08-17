@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using mvc_tutorial1.Models;
 using System.Collections.Generic;
 using System.Text.Json;
-using WebApplication2.Models;
 
-namespace WebApplication2.Controllers
+namespace mvc_tutorial1.Controllers
 {
     public class HomeController : Controller // Controller classından türetilince bir requesti karşılayabilir, response döndürebilir.
     {
