@@ -1,5 +1,38 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@* A) Model bazlı çalışma*@
+@*@model List<WebApplication2.Models.Product>
+<ul>
+    @{
+        foreach (var product in Model)
+        {
+            <li>  @product.ProductName => @product.Quantity pcs </li>
+        }   
+    }
+</ul>*@
+<h3>ViewBag 
+@* B 1) Viewbag yapılanması=> dinamik bir şekilde çalışan efektif bir veri taşıma şekli*@
 @{
+    foreach (var product in ViewBag.products as List<WebApplication2.Models.Product>)
+    {
+        <li>  @product.ProductName => @product.Quantity pcs </li>
+    }
 }
+</h3>
+
+<h3>ViewData
+    @{
+        foreach (var product in ViewData["productsList"] as List<WebApplication2.Models.Product>)
+        {
+            <li>  @product.ProductName => @product.Quantity pcs </li>
+        }
+    }
+</h3>
+
+<h3>
+    TempData
+    @{
+        foreach (var product in ViewData["productsList"] as List<WebApplication2.Models.Product>)
+        {
+            <li>  @product.ProductName => @product.Quantity pcs </li>
+        }
+    }
+</h3>
