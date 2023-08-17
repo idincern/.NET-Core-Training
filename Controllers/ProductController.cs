@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
+using mvc_tutorial1.Models;
+using mvc_tutorial1.Models.ViewModels;
 
-namespace WebApplication2.Controllers
+namespace mvc_tutorial1.Controllers
 {
     // [NonController] ile işaretlenirse sıradan bir sınıf oluyor, istek karşılayamıyor. controllerdan inherit edilse de noncontroller ile işaretleniyor.
     public class ProductController : Controller // Controller'ların yegane amacı gelen istekleri karşılamaktır. => işin komutanı, yönlendiricisi
@@ -32,6 +33,52 @@ namespace WebApplication2.Controllers
 
             // ÖRN: Microservices'ta event yapılanması => kuyruğa gelen mesajın tükteilebilmesi için mesaj geldiği anda bu iş mantığına sahip fonksiyon tetiklenir
             // MVC yapılanmasında bu şekilde tasarım varsa sorgulanmalıdır. Web uygulamalarında başka class/serviste tanımlayıp ilgili actionda çağırmak daha şık olur.
+        }
+
+
+        // ViewModel kullanarak verileri viewe gönderen action
+        public ActionResult GetProductsViaViewModel() // https://localhost:5001/product/GetProductsViaViewModel bu adrese girince burası tetiklenir.
+        {
+            var user = new User
+            {
+                Id = 9,
+                FirstName = "Ali",
+                LastName = "Veli"
+            };
+            var product = new Product
+            {
+                Id = 1,
+                ProductName = "Kalem",
+                Quantity = 10
+            };
+
+            var userModel = new UserProduct()
+            {
+                User = user,
+                Product = product
+            };
+
+            return View(userModel);
+        }
+        // Tuple kullanarak verileri viewe gönderen action
+        public ActionResult GetProductsByTuple() // https://localhost:5001/product/GetProductsByTuple bu adrese girince burası tetiklenir.
+        {
+            var user = new User
+            {
+                Id = 9,
+                FirstName = "Ali",
+                LastName = "Veli"
+            };
+            var product = new Product
+            {
+                Id = 1,
+                ProductName = "Kalem",
+                Quantity = 10
+            };
+
+            var userProduct = (user, product);
+
+            return View(userProduct);
         }
     }
 }
