@@ -16,7 +16,7 @@
 
 @* Tüm TagHelperlar *@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+<br />
 @* TagHelper ile form *@
 <form asp-action="Index" asp-controller="Product" method ="post" > 
     <input type ="text" />
@@ -25,6 +25,7 @@
     </select>
 </form>
 
+<br />
 <cache> 
     @DateTime.Now => cache oluşturur, her refreshte yenilenmez
 </cache>
@@ -39,5 +40,11 @@
     @* sadece Staging ve Production ortamlarında çalışır*@
 </environment>
 
-@* ImageHelper ETag yöntemi
+@* ImageHelper ETag yöntemi(resim gibi statik dosyalar için)
 <img src ="~/resim.png" asp-append-version = "true"/> => bu şekilde yapılırsa browserda cachelenmiş resim server tarafında değiştiyse bilgisi alınır ona göre işlem yapılır *@
+
+<br />
+@* => mvc_tutorial1 projesindeki tüm taghelperları ekliyoruz => taghelpers klasöründe*@
+@addTagHelper *, mvc_tutorial1 
+
+<email mail="idn@hotmail.com" display="Send Mail to Admin"></email>
