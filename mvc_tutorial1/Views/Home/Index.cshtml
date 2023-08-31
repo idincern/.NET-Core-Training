@@ -7,6 +7,21 @@
 
 @Html.TextBox("txtTest",null, new {style = "background-color:green; color:white;", placeholder = "Test Input Placeholder" })
 
-
+@* HtmlHelper*@
 @using mvc_tutorial1.Extensions
 @Html.CustomTextBox("txtCustom", null, "Test Input Placeholder" )
+
+@* HtmlHelper ile form => servera yük bindirir, okunurluğu düşük
+@Html.BeginForm("Index", "Product", FormMethod.Post)*@
+
+@* Tüm TagHelperlar *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@* TagHelper ile form *@
+<form asp-action="Index" asp-controller="Product" method ="post" > 
+    <input type ="text" />
+    <select>
+        <option> value = "value" text</option>
+    </select>
+</form>
+
