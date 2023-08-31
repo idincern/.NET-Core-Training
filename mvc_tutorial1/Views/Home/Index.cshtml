@@ -38,3 +38,6 @@
 <environment names ="Staging, Production">
     @* sadece Staging ve Production ortamlarında çalışır*@
 </environment>
+
+@* ImageHelper ETag yöntemi
+<img src ="~/resim.png" asp-append-version = "true"/> => bu şekilde yapılırsa browserda cachelenmiş resim server tarafında değiştiyse bilgisi alınır ona göre işlem yapılır *@
