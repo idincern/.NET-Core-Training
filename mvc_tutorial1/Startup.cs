@@ -19,6 +19,7 @@ namespace mvc_tutorial1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews(); // 1. adým: mvc mimarisi çalýþacaksa bu servisi eklemeliyiz
+            services.AddSingleton<ProductService>(); // 2. adým: servislerin eklenmesi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
