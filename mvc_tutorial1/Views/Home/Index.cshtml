@@ -28,5 +28,13 @@
 <cache> 
     @DateTime.Now => cache oluşturur, her refreshte yenilenmez
 </cache>
-<br />
+<br /> @*linebreak => \n yerine geçer*@
 @DateTime.Now => her refreshte yenilenir
+
+<environment names ="Development">
+    @* sadece development ortamında çalışır*@
+</environment>
+
+<environment names ="Staging, Production">
+    @* sadece Staging ve Production ortamlarında çalışır*@
+</environment>
