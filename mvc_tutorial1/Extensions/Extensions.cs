@@ -7,7 +7,7 @@ namespace mvc_tutorial1.Extensions
 {
     static public class Extensions
     {
-        public static IHtmlContent CustomTextBox(this IHtmlHelper htmlHelper, string name, string value, object htmlAttributes)
+        public static IHtmlContent CustomTextBox(this IHtmlHelper htmlHelper, string name, string value, object htmlAttributes) // html helper
         =>
             htmlHelper.TextBox(name, value, new
             {
