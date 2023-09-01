@@ -24,10 +24,20 @@ namespace mvc_tutorial1.Controllers
             return View(incomingModel);
         }
 
-
-        public IActionResult GetData(string a, string b)   // querystring ile veri alma örnek: 
+        public class Data{
+            public string A { get; set; }
+            public string B { get; set; }
+        }
+        public IActionResult GetData(Data data)   // querystring ile veri alma 2. yol: Data class'ı ile bağlamak 
         {
-            // https://localhost:5001/ModelBinding/GetData?a=ali&b=veli
+            // https://localhost:5001/ModelBinding/GetData?a=ali&b=veli => querystring linki
+
+            var queryString = Request.QueryString; // Request yapılan endpointe QueryString parametresi
+                                                   // eklenmiş mi eklenmemiş mi bununla ilgili bilgi verir(HasValue) ve Value propertyleri kontrol edilebilir
+
+            var a = Request.Query["a"].ToString(); // a = ali
+            var b = Request.Query["b"].ToString(); // b = veli
+
             return View();
         }
     }
