@@ -46,6 +46,8 @@ namespace mvc_tutorial1
             app.UseEndpoints(endpoints => // endpoint middlewarei => yapýlan isteðin varýþ noktasý: URL(istek adresi).
             {
                 endpoints.MapDefaultControllerRoute();/*MapRazorPages();*/
+
+                endpoints.MapControllerRoute("CustomRoute","{controller = Home}/{action = Index}/{a}/{b}/{id}");
                 // MapDefaultControllerRoute() => süslü parantez içinde parametre tanýmlanabilir.
                 // {controller = Home}/{action = Index}/{id?} -----> https://www......com/personel/getir/103
             });

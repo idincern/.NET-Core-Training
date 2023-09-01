@@ -33,7 +33,7 @@ namespace mvc_tutorial1.Controllers
         }
         public IActionResult GetData(Data data)   // querystring ile veri alma 2. yol: Data class'ı ile bağlamak 
         {
-            // https://localhost:5001/ModelBinding/GetData?a=ali&b=veli => querystring linki
+            // https://localhost:5001/ModelBinding/GetData?a=ali&b=veli => querystring linki: a ve b parametreleri görünür halde bunu engellemek için Route Parameter ile veri alınması yapılabilir
 
             var queryString = Request.QueryString; // Request yapılan endpointe QueryString parametresi
                                                    // eklenmiş mi eklenmemiş mi bununla ilgili bilgi verir(HasValue) ve Value propertyleri kontrol edilebilir
@@ -43,5 +43,31 @@ namespace mvc_tutorial1.Controllers
 
             return View();
         }
+
+        // https://localhost:5001/ModelBinding/GetDataOverRouteParameter/5 => routeparam = 5
+        public IActionResult GetDataOverRouteParameter(int routeParam)   // Route parameteres ile ... /controller/id şeklinde veri alınabilir, yine bir model class ile karşılanabilir 
+        {
+            var values = Request.RouteValues; 
+            var controller = values["controller"].ToString(); // controller = ModelBinding
+            var action = values["action"].ToString();         // action = GetDataOverRouteParameter
+            var id = values["id"].ToString();                 // id = 5
+
+            return View();
+        }
+
+        // Startup'taki endpoints.MapControllerRoute(name: "CustomRoute", pattern: "{controller = Home}/{action = Index}/{a}/{b}/{id}");
+        // https://localhost:5001/ModelBinding/GetDataOverMapControllerRoute/ahmet/mehmet/5 
+        public IActionResult GetDataOverMapControllerRoute(int id, string a, string b)   // Startup.cs'de bu yol önceden tanımlanmış olmalıdır. Ona uyarak veri alınır.
+        {
+            var values = Request.RouteValues;
+            var controller = values["controller"].ToString(); // controller = ModelBinding
+            var action = values["action"].ToString();         // action = GetDataOverRouteParameter
+            var id2 = values["id"].ToString();                // id = 5
+            var a2 = values["a"].ToString();                  // a = ahmet
+            var b2 = values["b"].ToString();                  // b = mehmet
+
+            return View();
+        }
+
     }
 }
